@@ -25,33 +25,33 @@ function SectionAccordion({
 
   return (
     <motion.section
-      className="border border-white/[0.06] overflow-hidden"
+      className="border border-[var(--color-border)] overflow-hidden"
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: delay ?? 0 }}
     >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-6 hover:bg-white/[0.02] transition-colors group cursor-pointer"
+        className="w-full flex items-center justify-between p-6 hover:bg-white/[0.015] transition-colors group cursor-pointer"
       >
         <div className="flex items-center gap-4">
           <div
-            className="w-1 h-8 rounded-full transition-opacity"
-            style={{ backgroundColor: accent, opacity: open ? 1 : 0.3 }}
+            className="w-[3px] h-7 transition-opacity"
+            style={{ backgroundColor: accent, opacity: open ? 1 : 0.25 }}
           />
           <div className="text-left">
-            <h3 className="text-white/75 text-lg font-sans font-bold tracking-wide group-hover:text-white/90 transition-colors">
+            <h3 className="text-[var(--color-foreground)] font-sans text-base font-medium tracking-[0.08em] uppercase group-hover:text-white transition-colors">
               {title}
             </h3>
             {subtitle && (
-              <p className="text-white/25 text-sm font-sans mt-0.5 tracking-wide">
+              <p className="text-[var(--color-muted)] font-serif text-xs italic mt-0.5">
                 {subtitle}
               </p>
             )}
           </div>
         </div>
         <motion.svg
-          className="w-5 h-5 text-white/25 group-hover:text-white/50 transition-colors"
+          className="w-4 h-4 text-[var(--color-muted)] group-hover:text-white/50 transition-colors"
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.2 }}
           fill="none"
@@ -130,10 +130,10 @@ export default function BrandSettingsPage({
       <div className="flex items-center justify-center py-20">
         <div className="flex items-center gap-3">
           <div
-            className="w-2 h-2 rounded-full animate-pulse"
+            className="w-1.5 h-1.5 rounded-full animate-pulse"
             style={{ backgroundColor: company.colors.accent }}
           />
-          <span className="text-white/35 font-mono text-sm tracking-wide">Loading settings...</span>
+          <span className="text-[var(--color-muted)] font-mono text-xs tracking-wide">Loading settings...</span>
         </div>
       </div>
     );
@@ -165,11 +165,11 @@ export default function BrandSettingsPage({
   };
 
   const inputClass =
-    'w-full bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-white/85 text-base font-sans tracking-wide focus:outline-none focus:border-[var(--brand-accent)] focus:bg-white/[0.04] transition-all placeholder:text-white/20';
+    'w-full bg-white/[0.02] border border-[var(--color-border)] px-4 py-3 text-[var(--color-foreground)] text-sm font-sans tracking-wide focus:outline-none focus:border-[var(--brand-accent)] focus:bg-white/[0.03] transition-all placeholder:text-white/15';
 
   const textareaClass = `${inputClass} resize-vertical min-h-[110px]`;
 
-  const labelClass = 'block text-xs font-mono tracking-[0.25em] text-white/35 uppercase mb-2.5 font-semibold';
+  const labelClass = 'block font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5';
 
   return (
     <div className="max-w-3xl">
@@ -182,15 +182,15 @@ export default function BrandSettingsPage({
             animate={{ opacity: 1, x: 0 }}
           >
             <div
-              className="h-[2px] w-8"
+              className="h-px w-8"
               style={{ backgroundColor: company.colors.accent, opacity: 0.5 }}
             />
-            <span className="text-xs font-mono tracking-[0.3em] text-white/25 uppercase font-semibold">
+            <span className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
               Configuration
             </span>
           </motion.div>
           <motion.h1
-            className="font-display text-3xl font-bold tracking-wider uppercase"
+            className="font-sans text-3xl font-semibold tracking-[0.08em] uppercase"
             style={{ color: company.colors.accent }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -199,7 +199,7 @@ export default function BrandSettingsPage({
             Brand Settings
           </motion.h1>
           <motion.p
-            className="text-white/40 text-base font-sans mt-2 tracking-wide font-medium"
+            className="text-[var(--color-muted)] font-serif text-sm italic mt-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
@@ -209,9 +209,9 @@ export default function BrandSettingsPage({
         </div>
         <motion.button
           onClick={handleSave}
-          className="px-7 py-3 text-sm font-mono tracking-[0.2em] uppercase font-bold border transition-all duration-300"
+          className="px-7 py-3 font-mono text-[11px] tracking-[0.2em] uppercase border transition-all duration-300 cursor-pointer"
           style={{
-            color: saved ? '#060606' : company.colors.accent,
+            color: saved ? '#0a0a0a' : company.colors.accent,
             borderColor: company.colors.accent,
             backgroundColor: saved ? company.colors.accent : 'transparent',
           }}
@@ -226,7 +226,7 @@ export default function BrandSettingsPage({
       </div>
 
       {/* Form sections as accordions */}
-      <div className="space-y-4">
+      <div className="space-y-3">
         <SectionAccordion
           title="Identity"
           subtitle="Company name, phone, website, location"
@@ -348,7 +348,7 @@ export default function BrandSettingsPage({
                 rows={8}
                 placeholder="Each line becomes a rule the AI must follow"
               />
-              <p className="text-white/20 text-xs font-mono mt-2 tracking-wide">
+              <p className="text-white/15 font-mono text-[10px] mt-2 tracking-wide">
                 {form.hardRules.split('\n').filter((r) => r.trim()).length} rules configured
               </p>
             </div>
@@ -361,7 +361,7 @@ export default function BrandSettingsPage({
                 rows={5}
                 placeholder="Each line becomes a phrase the AI must never use"
               />
-              <p className="text-white/20 text-xs font-mono mt-2 tracking-wide">
+              <p className="text-white/15 font-mono text-[10px] mt-2 tracking-wide">
                 {form.bannedPhrases.split('\n').filter((p) => p.trim()).length} phrases banned
               </p>
             </div>
@@ -377,19 +377,19 @@ export default function BrandSettingsPage({
           <div>
             <div className="flex items-center justify-between mb-3">
               <label className={labelClass}>Approved Captions</label>
-              <span className="text-xs font-mono tracking-[0.1em] text-white/25">
+              <span className="font-mono text-[10px] tracking-[0.1em] text-[var(--color-muted)]">
                 {form.exampleCaptions.split('\n---\n').filter((c) => c.trim()).length} examples loaded
               </span>
             </div>
             <textarea
               value={form.exampleCaptions}
               onChange={(e) => handleChange('exampleCaptions', e.target.value)}
-              className={`${inputClass} resize-vertical min-h-[250px] font-sans leading-relaxed text-sm`}
+              className={`${inputClass} resize-vertical min-h-[250px] leading-relaxed text-sm`}
               rows={14}
               placeholder={"First example caption here...\n---\nSecond example caption here...\n---\nThird example caption here..."}
             />
-            <p className="text-white/20 text-xs font-sans mt-2 tracking-wide">
-              Separate each caption with a line containing only <span className="font-mono text-white/30">---</span>
+            <p className="text-white/15 font-serif text-xs italic mt-2">
+              Separate each caption with a line containing only <span className="font-mono text-white/25">---</span>
             </p>
           </div>
         </SectionAccordion>
@@ -404,9 +404,9 @@ export default function BrandSettingsPage({
       >
         <motion.button
           onClick={handleSave}
-          className="px-10 py-3.5 text-base font-mono tracking-[0.2em] uppercase font-bold border transition-all duration-300"
+          className="px-10 py-3.5 font-mono text-xs tracking-[0.2em] uppercase border transition-all duration-300 cursor-pointer"
           style={{
-            color: saved ? '#060606' : company.colors.accent,
+            color: saved ? '#0a0a0a' : company.colors.accent,
             borderColor: company.colors.accent,
             backgroundColor: saved ? company.colors.accent : 'transparent',
           }}

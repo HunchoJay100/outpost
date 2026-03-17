@@ -60,6 +60,7 @@ export interface MediaItem {
   companySlug: CompanySlug;
   fileName: string;
   fileType: 'image' | 'video';
+  mimeType: string;
   projectName: string;
   tags: string[];
   createdAt: string;
