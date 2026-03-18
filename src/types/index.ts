@@ -79,9 +79,21 @@ export interface Post {
   updatedAt: string;
 }
 
+export interface ExportedPost {
+  id: string;
+  companySlug: CompanySlug;
+  captionText: string;
+  mediaIds: string[];
+  postType: PostType;
+  notes: string;
+  exportedAt: string;
+  exportName: string;
+}
+
 export interface OutpostData {
   version: number;
   brandSettings: Record<CompanySlug, BrandSettings>;
   captions: Caption[];
   posts: Post[];
+  exportedPosts: ExportedPost[];
 }

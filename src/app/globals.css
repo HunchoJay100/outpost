@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0a0a0a;
-  --color-foreground: #f0f0f0;
+  --color-background: #050505;
+  --color-foreground: #ffffff;
   --color-accent: #f6462b;
-  --color-muted: #5a5a5a;
-  --color-subtle: #1a1a1a;
-  --color-border: #1f1f1f;
-  --font-sans: var(--font-oswald);
-  --font-serif: var(--font-libre-baskerville);
-  --font-mono: var(--font-oxygen-mono);
+  --color-muted: rgba(255, 255, 255, 0.4);
+  --color-subtle: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --font-sans: var(--font-plus-jakarta);
+  --font-body: var(--font-dm-sans);
+  --radius: 20px;
+  --radius-sm: 12px;
 }
 
 /* ===== BASE ===== */
@@ -31,18 +32,19 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 9000;
-  opacity: 0.03;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ===== SIDE MARKERS ===== */
 .side-marker {
   position: fixed;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.2em;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.06);
   writing-mode: vertical-rl;
   z-index: 50;
 }
@@ -62,7 +64,7 @@ body {
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(246, 70, 43, 0.2); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: rgba(246, 70, 43, 0.25); border-radius: 100px; }
 
 /* ===== ANIMATIONS ===== */
 @keyframes fadeUp {
@@ -80,15 +82,131 @@ body {
   50% { opacity: 0.8; }
 }
 
+@keyframes accentGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(246,70,43,0.15), 0 0 60px rgba(246,70,43,0.05); }
+  50% { text-shadow: 0 0 40px rgba(246,70,43,0.35), 0 0 100px rgba(246,70,43,0.1); }
+}
+
 /* ===== TYPOGRAPHY UTILITIES ===== */
-.font-oswald {
+.font-display {
   font-family: var(--font-sans);
 }
 
-.font-libre {
-  font-family: var(--font-serif);
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Homepage fonts (Oswald + Oxygen Mono) */
+.font-oswald {
+  font-family: var(--font-oswald);
 }
 
 .font-oxygen {
-  font-family: var(--font-mono);
+  font-family: var(--font-oxygen-mono);
+}
+
+/* ===== BUTTON BASE ===== */
+.btn-pill {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border-radius: 100px;
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.btn-pill:hover {
+  transform: scale(1.03);
+}
+
+.btn-pill:active {
+  transform: scale(0.97);
+}
+
+.btn-pill-primary {
+  background: var(--color-accent);
+  color: var(--color-background);
+}
+
+.btn-pill-primary:hover {
+  background: #fff;
+  color: var(--color-background);
+}
+
+.btn-pill-outline {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.6);
+}
+
+.btn-pill-outline:hover {
+  border-color: rgba(255,255,255,0.25);
+  color: #fff;
+  background: rgba(255,255,255,0.04);
+}
+
+.btn-pill-accent {
+  background: transparent;
+  border: 1px solid rgba(246,70,43,0.3);
+  color: var(--color-accent);
+}
+
+.btn-pill-accent:hover {
+  background: rgba(246,70,43,0.08);
+  border-color: var(--color-accent);
+}
+
+/* ===== CARD BASE ===== */
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-sm);
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+}
+
+/* ===== INPUT BASE ===== */
+.input-field {
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  color: rgba(255,255,255,0.85);
+  font-family: var(--font-body);
+  font-size: 14px;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+}
+
+.input-field::placeholder {
+  color: rgba(255,255,255,0.15);
+}
+
+/* ===== TAG BASE ===== */
+.tag {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.2s;
 }

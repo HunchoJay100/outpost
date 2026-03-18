@@ -53,31 +53,31 @@ function CaptionCard({
       <div className="flex items-center justify-between px-5 py-3 border-b border-[var(--color-border)]">
         <div className="flex items-center gap-3">
           <span
-            className="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1 border transition-colors"
+            className="font-sans text-xs tracking-[0.12em] uppercase px-2.5 py-1 border transition-colors"
             style={{ color: accent, borderColor: `${accent}40` }}
           >
             {caption.postType}
           </span>
           {caption.tags.map((tag) => (
-            <span key={tag} className="font-mono text-[9px] tracking-[0.08em] text-[var(--color-muted)] uppercase">
+            <span key={tag} className="font-sans text-xs tracking-[0.08em] text-[var(--color-muted)] uppercase">
               #{tag}
             </span>
           ))}
         </div>
-        <span className="font-mono text-[9px] tracking-[0.1em] text-white/15">
+        <span className="font-sans text-xs tracking-[0.1em] text-white/15">
           {new Date(caption.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
         </span>
       </div>
 
       {/* Caption text */}
       <div className="px-5 py-4">
-        <p className="font-serif text-sm leading-[1.8] text-white/70 whitespace-pre-line">
+        <p className="font-body text-sm leading-[1.8] text-white/70 whitespace-pre-line">
           {displayText}
         </p>
         {isLong && (
           <button
             onClick={() => setExpanded(!expanded)}
-            className="font-mono text-[9px] tracking-[0.15em] uppercase mt-2 transition-colors cursor-pointer"
+            className="font-sans text-xs tracking-[0.15em] uppercase mt-2 transition-colors cursor-pointer"
             style={{ color: accent }}
           >
             {expanded ? 'Collapse' : 'Read more'}
@@ -89,7 +89,7 @@ function CaptionCard({
       <div className="flex items-center gap-1 px-5 py-3 border-t border-[var(--color-border)]">
         <button
           onClick={handleCopy}
-          className="font-mono text-[9px] tracking-[0.12em] uppercase px-3 py-1.5 hover:bg-white/[0.03] transition-colors cursor-pointer"
+          className="font-sans text-xs tracking-[0.12em] uppercase px-3 py-1.5 hover:bg-white/[0.03] transition-colors cursor-pointer"
           style={{ color: copied ? accent : 'var(--color-muted)' }}
         >
           {copied ? '✓ Copied' : 'Copy'}
@@ -97,21 +97,21 @@ function CaptionCard({
         <div className="w-px h-3 bg-[var(--color-border)]" />
         <button
           onClick={onEdit}
-          className="font-mono text-[9px] tracking-[0.12em] uppercase text-[var(--color-muted)] px-3 py-1.5 hover:bg-white/[0.03] hover:text-white/60 transition-colors cursor-pointer"
+          className="font-sans text-xs tracking-[0.12em] uppercase text-[var(--color-muted)] px-3 py-1.5 hover:bg-white/[0.03] hover:text-white/60 transition-colors cursor-pointer"
         >
           Edit
         </button>
         <div className="w-px h-3 bg-[var(--color-border)]" />
         <button
           onClick={onArchive}
-          className="font-mono text-[9px] tracking-[0.12em] uppercase text-[var(--color-muted)] px-3 py-1.5 hover:bg-white/[0.03] hover:text-white/60 transition-colors cursor-pointer"
+          className="font-sans text-xs tracking-[0.12em] uppercase text-[var(--color-muted)] px-3 py-1.5 hover:bg-white/[0.03] hover:text-white/60 transition-colors cursor-pointer"
         >
           {caption.archived ? 'Restore' : 'Archive'}
         </button>
         <div className="w-px h-3 bg-[var(--color-border)]" />
         <button
           onClick={onDelete}
-          className="font-mono text-[9px] tracking-[0.12em] uppercase text-[var(--color-muted)] px-3 py-1.5 hover:bg-white/[0.03] hover:text-red-400/70 transition-colors cursor-pointer"
+          className="font-sans text-xs tracking-[0.12em] uppercase text-[var(--color-muted)] px-3 py-1.5 hover:bg-white/[0.03] hover:text-red-400/70 transition-colors cursor-pointer"
         >
           Delete
         </button>
@@ -173,7 +173,7 @@ function CaptionModal({
           </div>
           <button
             onClick={onClose}
-            className="font-mono text-[10px] tracking-[0.1em] text-[var(--color-muted)] hover:text-white/60 transition-colors cursor-pointer uppercase"
+            className="font-sans text-xs tracking-[0.1em] text-[var(--color-muted)] hover:text-white/60 transition-colors cursor-pointer uppercase"
           >
             Close
           </button>
@@ -183,7 +183,7 @@ function CaptionModal({
         <div className="flex-1 overflow-y-auto p-6 space-y-5">
           {/* Post Type */}
           <div>
-            <label className="block font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5">
+            <label className="block font-sans text-xs tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5">
               Post Type
             </label>
             <div className="flex flex-wrap gap-2">
@@ -191,7 +191,7 @@ function CaptionModal({
                 <button
                   key={pt}
                   onClick={() => setPostType(pt)}
-                  className="font-mono text-[9px] tracking-[0.1em] uppercase px-3 py-1.5 border transition-all duration-200 cursor-pointer"
+                  className="font-sans text-xs tracking-[0.1em] uppercase px-3 py-1.5 border transition-all duration-200 cursor-pointer"
                   style={{
                     color: postType === pt ? '#0a0a0a' : 'var(--color-muted)',
                     backgroundColor: postType === pt ? accent : 'transparent',
@@ -206,32 +206,32 @@ function CaptionModal({
 
           {/* Caption text */}
           <div>
-            <label className="block font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5">
+            <label className="block font-sans text-xs tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5">
               Caption Text
             </label>
             <textarea
               value={text}
               onChange={(e) => setText(e.target.value)}
-              className="w-full bg-white/[0.02] border border-[var(--color-border)] px-4 py-3 text-white/85 font-serif text-sm leading-[1.8] focus:outline-none focus:border-[var(--brand-accent)] transition-all resize-vertical min-h-[200px] placeholder:text-white/15"
+              className="w-full bg-white/[0.02] border border-[var(--color-border)] px-4 py-3 text-white/85 font-body text-sm leading-[1.8] focus:outline-none focus:border-[var(--brand-accent)] transition-all resize-vertical min-h-[200px] placeholder:text-white/15"
               rows={10}
               placeholder="Write your caption here..."
               autoFocus
             />
-            <p className="font-mono text-[9px] tracking-wide text-white/15 mt-1.5">
+            <p className="font-sans text-xs tracking-wide text-white/15 mt-1.5">
               {text.length} characters
             </p>
           </div>
 
           {/* Tags */}
           <div>
-            <label className="block font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5">
+            <label className="block font-sans text-xs tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5">
               Tags (comma separated)
             </label>
             <input
               type="text"
               value={tagInput}
               onChange={(e) => setTagInput(e.target.value)}
-              className="w-full bg-white/[0.02] border border-[var(--color-border)] px-4 py-3 text-white/85 font-mono text-sm tracking-wide focus:outline-none focus:border-[var(--brand-accent)] transition-all placeholder:text-white/15"
+              className="w-full bg-white/[0.02] border border-[var(--color-border)] px-4 py-3 text-white/85 font-sans text-sm tracking-wide focus:outline-none focus:border-[var(--brand-accent)] transition-all placeholder:text-white/15"
               placeholder="e.g. barndo, spring-campaign-2026"
             />
           </div>
@@ -241,13 +241,13 @@ function CaptionModal({
         <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-[var(--color-border)]">
           <button
             onClick={onClose}
-            className="font-mono text-[10px] tracking-[0.15em] uppercase text-[var(--color-muted)] px-5 py-2.5 border border-[var(--color-border)] hover:bg-white/[0.02] transition-colors cursor-pointer"
+            className="font-sans text-xs tracking-[0.15em] uppercase text-[var(--color-muted)] px-5 py-2.5 border border-[var(--color-border)] hover:bg-white/[0.02] transition-colors cursor-pointer"
           >
             Cancel
           </button>
           <button
             onClick={handleSubmit}
-            className="font-mono text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 border transition-all cursor-pointer"
+            className="font-sans text-xs tracking-[0.15em] uppercase px-5 py-2.5 border transition-all cursor-pointer"
             style={{
               color: text.trim() ? '#0a0a0a' : 'var(--color-muted)',
               backgroundColor: text.trim() ? accent : 'transparent',
@@ -316,13 +316,13 @@ function AIGenerateModal({
             <h3 className="font-sans text-base font-medium tracking-[0.1em] uppercase">
               AI Generate
             </h3>
-            <span className="font-mono text-[9px] tracking-[0.1em] text-[var(--color-muted)] uppercase px-2 py-0.5 border border-[var(--color-border)]">
+            <span className="font-sans text-xs tracking-[0.1em] text-[var(--color-muted)] uppercase px-2 py-0.5 border border-[var(--color-border)]">
               Mocked
             </span>
           </div>
           <button
             onClick={onClose}
-            className="font-mono text-[10px] tracking-[0.1em] text-[var(--color-muted)] hover:text-white/60 transition-colors cursor-pointer uppercase"
+            className="font-sans text-xs tracking-[0.1em] text-[var(--color-muted)] hover:text-white/60 transition-colors cursor-pointer uppercase"
           >
             Close
           </button>
@@ -332,7 +332,7 @@ function AIGenerateModal({
         <div className="flex-1 overflow-y-auto p-6 space-y-5">
           {/* Post Type selector */}
           <div>
-            <label className="block font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5">
+            <label className="block font-sans text-xs tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5">
               Post Type
             </label>
             <div className="flex flex-wrap gap-2">
@@ -340,7 +340,7 @@ function AIGenerateModal({
                 <button
                   key={pt}
                   onClick={() => setPostType(pt)}
-                  className="font-mono text-[9px] tracking-[0.1em] uppercase px-3 py-1.5 border transition-all duration-200 cursor-pointer"
+                  className="font-sans text-xs tracking-[0.1em] uppercase px-3 py-1.5 border transition-all duration-200 cursor-pointer"
                   style={{
                     color: postType === pt ? '#0a0a0a' : 'var(--color-muted)',
                     backgroundColor: postType === pt ? accent : 'transparent',
@@ -355,13 +355,13 @@ function AIGenerateModal({
 
           {/* Prompt */}
           <div>
-            <label className="block font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5">
+            <label className="block font-sans text-xs tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5">
               Describe the post
             </label>
             <textarea
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              className="w-full bg-white/[0.02] border border-[var(--color-border)] px-4 py-3 text-white/85 font-serif text-sm leading-[1.8] focus:outline-none focus:border-[var(--brand-accent)] transition-all resize-vertical min-h-[100px] placeholder:text-white/15"
+              className="w-full bg-white/[0.02] border border-[var(--color-border)] px-4 py-3 text-white/85 font-body text-sm leading-[1.8] focus:outline-none focus:border-[var(--brand-accent)] transition-all resize-vertical min-h-[100px] placeholder:text-white/15"
               rows={4}
               placeholder="e.g. Spring lead gen post about custom homes, warm and inviting tone..."
               autoFocus
@@ -372,7 +372,7 @@ function AIGenerateModal({
           <button
             onClick={mockGenerate}
             disabled={generating || !prompt.trim()}
-            className="font-mono text-[10px] tracking-[0.15em] uppercase px-6 py-2.5 border transition-all cursor-pointer disabled:opacity-30"
+            className="font-sans text-xs tracking-[0.15em] uppercase px-6 py-2.5 border transition-all cursor-pointer disabled:opacity-30"
             style={{
               color: '#0a0a0a',
               backgroundColor: accent,
@@ -387,7 +387,7 @@ function AIGenerateModal({
             <div className="space-y-4 pt-2">
               <div className="flex items-center gap-3">
                 <div className="h-px flex-1 bg-[var(--color-border)]" />
-                <span className="font-mono text-[9px] tracking-[0.2em] text-[var(--color-muted)] uppercase">
+                <span className="font-sans text-xs tracking-[0.2em] text-[var(--color-muted)] uppercase">
                   3 Options Generated
                 </span>
                 <div className="h-px flex-1 bg-[var(--color-border)]" />
@@ -396,19 +396,19 @@ function AIGenerateModal({
               {results.map((result, i) => (
                 <div key={i} className="border border-[var(--color-border)] hover:border-white/[0.1] transition-colors">
                   <div className="px-5 py-3 border-b border-[var(--color-border)] flex items-center justify-between">
-                    <span className="font-mono text-[9px] tracking-[0.12em] text-[var(--color-muted)] uppercase">
+                    <span className="font-sans text-xs tracking-[0.12em] text-[var(--color-muted)] uppercase">
                       Option {i + 1}
                     </span>
                     <button
                       onClick={() => onSave(result, postType)}
-                      className="font-mono text-[9px] tracking-[0.12em] uppercase px-3 py-1 border transition-all cursor-pointer"
+                      className="font-sans text-xs tracking-[0.12em] uppercase px-3 py-1 border transition-all cursor-pointer"
                       style={{ color: accent, borderColor: `${accent}50` }}
                     >
                       Save to Library
                     </button>
                   </div>
                   <div className="px-5 py-4">
-                    <p className="font-serif text-sm leading-[1.8] text-white/70 whitespace-pre-line">
+                    <p className="font-body text-sm leading-[1.8] text-white/70 whitespace-pre-line">
                       {result}
                     </p>
                   </div>
@@ -449,19 +449,19 @@ function DeleteConfirm({
         <h3 className="font-sans text-base font-medium tracking-[0.08em] uppercase mb-2">
           Delete Caption
         </h3>
-        <p className="font-serif text-sm italic text-[var(--color-muted)] mb-6">
+        <p className="font-body text-sm text-[var(--color-muted)] mb-6">
           This action cannot be undone.
         </p>
         <div className="flex items-center justify-end gap-3">
           <button
             onClick={onCancel}
-            className="font-mono text-[10px] tracking-[0.15em] uppercase text-[var(--color-muted)] px-5 py-2.5 border border-[var(--color-border)] hover:bg-white/[0.02] transition-colors cursor-pointer"
+            className="font-sans text-xs tracking-[0.15em] uppercase text-[var(--color-muted)] px-5 py-2.5 border border-[var(--color-border)] hover:bg-white/[0.02] transition-colors cursor-pointer"
           >
             Cancel
           </button>
           <button
             onClick={onConfirm}
-            className="font-mono text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 bg-red-500/80 text-white border border-red-500/80 hover:bg-red-500 transition-colors cursor-pointer"
+            className="font-sans text-xs tracking-[0.15em] uppercase px-5 py-2.5 bg-red-500/80 text-white border border-red-500/80 hover:bg-red-500 transition-colors cursor-pointer"
           >
             Delete
           </button>
@@ -551,7 +551,7 @@ export default function CaptionsPage({
       <div className="flex items-center justify-center py-20">
         <div className="flex items-center gap-3">
           <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: accent }} />
-          <span className="text-[var(--color-muted)] font-mono text-xs tracking-wide">Loading captions...</span>
+          <span className="text-[var(--color-muted)] font-sans text-xs tracking-wide">Loading captions...</span>
         </div>
       </div>
     );
@@ -568,7 +568,7 @@ export default function CaptionsPage({
             animate={{ opacity: 1, x: 0 }}
           >
             <div className="h-px w-8" style={{ backgroundColor: accent, opacity: 0.5 }} />
-            <span className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
+            <span className="font-sans text-xs tracking-[0.3em] text-[var(--color-muted)] uppercase">
               Library
             </span>
           </motion.div>
@@ -582,7 +582,7 @@ export default function CaptionsPage({
             Captions
           </motion.h1>
           <motion.p
-            className="text-[var(--color-muted)] font-serif text-sm italic mt-1"
+            className="text-[var(--color-muted)] font-body text-sm mt-1"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
@@ -598,13 +598,13 @@ export default function CaptionsPage({
         >
           <button
             onClick={() => setModal('ai')}
-            className="font-mono text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 border border-[var(--color-border)] text-[var(--color-muted)] hover:border-white/[0.12] hover:text-white/60 transition-all cursor-pointer"
+            className="font-sans text-xs tracking-[0.15em] uppercase px-5 py-2.5 border border-[var(--color-border)] text-[var(--color-muted)] hover:border-white/[0.12] hover:text-white/60 transition-all cursor-pointer"
           >
             AI Generate
           </button>
           <button
             onClick={() => setModal('add')}
-            className="font-mono text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 border transition-all cursor-pointer"
+            className="font-sans text-xs tracking-[0.15em] uppercase px-5 py-2.5 border transition-all cursor-pointer"
             style={{ color: '#0a0a0a', backgroundColor: accent, borderColor: accent }}
           >
             + New Caption
@@ -628,7 +628,7 @@ export default function CaptionsPage({
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-white/[0.02] border border-[var(--color-border)] pl-10 pr-4 py-2.5 text-white/85 font-mono text-xs tracking-wide focus:outline-none focus:border-white/[0.12] transition-all placeholder:text-white/15"
+            className="w-full bg-white/[0.02] border border-[var(--color-border)] pl-10 pr-4 py-2.5 text-white/85 font-sans text-xs tracking-wide focus:outline-none focus:border-white/[0.12] transition-all placeholder:text-white/15"
             placeholder="Search captions or tags..."
           />
         </div>
@@ -643,7 +643,7 @@ export default function CaptionsPage({
               <button
                 key={type}
                 onClick={() => setFilterType(type as PostType | 'All')}
-                className="font-mono text-[9px] tracking-[0.1em] uppercase px-3 py-1.5 border transition-all duration-200 cursor-pointer"
+                className="font-sans text-xs tracking-[0.1em] uppercase px-3 py-1.5 border transition-all duration-200 cursor-pointer"
                 style={{
                   color: active ? '#0a0a0a' : 'var(--color-muted)',
                   backgroundColor: active ? accent : 'transparent',
@@ -659,7 +659,7 @@ export default function CaptionsPage({
           <div className="ml-auto">
             <button
               onClick={() => setShowArchived(!showArchived)}
-              className="font-mono text-[9px] tracking-[0.1em] uppercase px-3 py-1.5 border border-[var(--color-border)] transition-all cursor-pointer"
+              className="font-sans text-xs tracking-[0.1em] uppercase px-3 py-1.5 border border-[var(--color-border)] transition-all cursor-pointer"
               style={{
                 color: showArchived ? accent : 'var(--color-muted)',
                 borderColor: showArchived ? `${accent}50` : 'var(--color-border)',
@@ -680,7 +680,7 @@ export default function CaptionsPage({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
-              <p className="font-serif text-sm italic text-[var(--color-muted)]">
+              <p className="font-body text-sm text-[var(--color-muted)]">
                 {showArchived ? 'No archived captions.' : search || filterType !== 'All' ? 'No captions match your filters.' : 'No captions yet. Add one or generate with AI.'}
               </p>
             </motion.div>

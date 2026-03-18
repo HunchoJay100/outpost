@@ -32,7 +32,7 @@ export default function CompanyLayout({
   if (!company) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-[var(--color-muted)] font-mono text-lg">Brand not found</p>
+        <p className="text-[var(--color-muted)] font-sans text-lg">Brand not found</p>
       </div>
     );
   }
@@ -52,7 +52,7 @@ export default function CompanyLayout({
         <div className="p-6 border-b border-[var(--color-border)]">
           <Link
             href="/"
-            className="flex items-center gap-2.5 font-mono text-[11px] tracking-[0.15em] text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors uppercase mb-5 group"
+            className="flex items-center gap-2.5 font-sans text-xs tracking-[0.15em] text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors uppercase mb-5 group"
           >
             <svg className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
@@ -83,7 +83,7 @@ export default function CompanyLayout({
                 {company.name}
               </h2>
             </div>
-            <p className="text-[var(--color-muted)] font-serif text-xs italic ml-4.5">
+            <p className="text-[var(--color-muted)] font-body text-xs ml-4.5">
               {company.tagline}
             </p>
           </div>
@@ -91,7 +91,7 @@ export default function CompanyLayout({
 
         {/* Section label */}
         <div className="px-6 pt-5 pb-2">
-          <span className="font-mono text-[10px] tracking-[0.3em] text-white/20 uppercase">
+          <span className="font-sans text-xs tracking-[0.3em] text-white/20 uppercase">
             Operations
           </span>
         </div>
@@ -176,12 +176,12 @@ export default function CompanyLayout({
         {/* Sidebar footer */}
         <div className="p-5 border-t border-[var(--color-border)]">
           <div className="flex items-center justify-between">
-            <span className="font-mono text-[10px] tracking-[0.2em] text-white/15 uppercase">
+            <span className="font-sans text-xs tracking-[0.2em] text-white/15 uppercase">
               The Medium v1.0
             </span>
             <div className="flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-400/50" />
-              <span className="font-mono text-[10px] tracking-[0.1em] text-white/20">
+              <span className="font-sans text-xs tracking-[0.1em] text-white/20">
                 OK
               </span>
             </div>
@@ -209,7 +209,7 @@ export default function CompanyLayout({
           </div>
           <div className="flex items-center gap-4">
             <span
-              className="font-mono text-[10px] tracking-[0.1em] text-[var(--color-muted)]"
+              className="font-sans text-xs tracking-[0.1em] text-[var(--color-muted)]"
               suppressHydrationWarning
             >
               {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
@@ -219,7 +219,7 @@ export default function CompanyLayout({
                 className="w-1.5 h-1.5 rounded-full"
                 style={{ backgroundColor: company.colors.accent, opacity: 0.6 }}
               />
-              <span className="font-mono text-[10px] tracking-[0.1em] text-[var(--color-muted)] uppercase">
+              <span className="font-sans text-xs tracking-[0.1em] text-[var(--color-muted)] uppercase">
                 Active
               </span>
             </div>

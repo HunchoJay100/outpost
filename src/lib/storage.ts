@@ -7,7 +7,9 @@ export function getData(): OutpostData | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
-    return JSON.parse(raw) as OutpostData;
+    const data = JSON.parse(raw) as OutpostData;
+    if (!data.exportedPosts) data.exportedPosts = [];
+    return data;
   } catch {
     return null;
   }

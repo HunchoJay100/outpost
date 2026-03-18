@@ -62,7 +62,7 @@ export default function CompanyOverview({
             className="h-px w-10"
             style={{ backgroundColor: company.colors.accent, opacity: 0.5 }}
           />
-          <span className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
+          <span className="font-sans text-xs tracking-[0.3em] text-[var(--color-muted)] uppercase">
             Workspace
           </span>
         </motion.div>
@@ -76,7 +76,7 @@ export default function CompanyOverview({
           {company.name}
         </motion.h1>
         <motion.p
-          className="text-[var(--color-muted)] font-serif text-base italic mt-2"
+          className="text-[var(--color-muted)] font-body text-base mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.1 }}
@@ -126,7 +126,7 @@ export default function CompanyOverview({
                       <h3 className="text-[var(--color-foreground)] font-sans text-base font-medium tracking-[0.06em] uppercase group-hover:text-white transition-colors">
                         {section.label}
                       </h3>
-                      <p className="text-[var(--color-muted)] font-serif text-xs italic mt-1 group-hover:text-white/40 transition-colors">
+                      <p className="text-[var(--color-muted)] font-body text-xs mt-1 group-hover:text-white/40 transition-colors">
                         {section.desc}
                       </p>
                     </div>
@@ -141,7 +141,7 @@ export default function CompanyOverview({
                       >
                         {section.count}
                       </span>
-                      <p className="font-mono text-[9px] tracking-[0.15em] text-[var(--color-muted)] uppercase">
+                      <p className="font-sans text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
                         {section.countLabel}
                       </p>
                     </div>
@@ -152,7 +152,7 @@ export default function CompanyOverview({
                         className="w-1.5 h-1.5 rounded-full"
                         style={{ backgroundColor: company.colors.accent, opacity: 0.6 }}
                       />
-                      <span className="font-mono text-[9px] tracking-[0.15em] text-[var(--color-muted)] uppercase">
+                      <span className="font-sans text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
                         {section.countLabel}
                       </span>
                     </div>
@@ -166,7 +166,7 @@ export default function CompanyOverview({
                     style={{ backgroundColor: company.colors.accent, opacity: 0.4 }}
                   />
                   <span
-                    className="font-mono text-[9px] tracking-[0.2em] uppercase"
+                    className="font-sans text-xs tracking-[0.2em] uppercase"
                     style={{ color: company.colors.accent, opacity: 0.6 }}
                   >
                     Enter

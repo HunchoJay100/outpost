@@ -276,6 +276,7 @@ export function seedData(): void {
     brandSettings: defaultBrandSettings,
     captions,
     posts: [],
+    exportedPosts: [],
   };
 
   setData(data);

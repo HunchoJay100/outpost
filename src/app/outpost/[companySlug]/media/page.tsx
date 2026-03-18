@@ -91,7 +91,7 @@ function UploadModal({
           </div>
           <button
             onClick={onClose}
-            className="font-mono text-[10px] tracking-[0.1em] text-[var(--color-muted)] hover:text-white/60 transition-colors cursor-pointer uppercase"
+            className="font-sans text-xs tracking-[0.1em] text-[var(--color-muted)] hover:text-white/60 transition-colors cursor-pointer uppercase"
           >
             Close
           </button>
@@ -117,22 +117,22 @@ function UploadModal({
             <svg className="w-8 h-8 mx-auto mb-3 text-[var(--color-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
             </svg>
-            <p className="font-mono text-[10px] tracking-[0.15em] text-[var(--color-muted)] uppercase">
+            <p className="font-sans text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
               Drop files here or click to browse
             </p>
-            <p className="font-serif text-xs italic text-white/15 mt-1">Images and videos only</p>
+            <p className="font-body text-xs text-white/15 mt-1">Images and videos only</p>
           </div>
 
           {/* File list */}
           {files.length > 0 && (
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--color-muted)] uppercase">
+                <span className="font-sans text-xs tracking-[0.2em] text-[var(--color-muted)] uppercase">
                   {files.length} file{files.length !== 1 ? 's' : ''} selected
                 </span>
                 <button
                   onClick={() => setFiles([])}
-                  className="font-mono text-[9px] tracking-[0.1em] text-[var(--color-muted)] hover:text-white/60 uppercase cursor-pointer"
+                  className="font-sans text-xs tracking-[0.1em] text-[var(--color-muted)] hover:text-white/60 uppercase cursor-pointer"
                 >
                   Clear all
                 </button>
@@ -140,15 +140,15 @@ function UploadModal({
               {files.map((file, i) => (
                 <div key={i} className="flex items-center justify-between px-4 py-2.5 border border-[var(--color-border)] bg-white/[0.01]">
                   <div className="flex items-center gap-3 min-w-0">
-                    <span className="font-mono text-[9px] uppercase px-2 py-0.5 border border-[var(--color-border)]" style={{ color: accent }}>
+                    <span className="font-sans text-xs uppercase px-2 py-0.5 border border-[var(--color-border)]" style={{ color: accent }}>
                       {file.type.startsWith('video/') ? 'VID' : 'IMG'}
                     </span>
-                    <span className="font-mono text-xs text-white/60 truncate">{file.name}</span>
-                    <span className="font-mono text-[9px] text-white/20 flex-shrink-0">{formatSize(file.size)}</span>
+                    <span className="font-sans text-xs text-white/60 truncate">{file.name}</span>
+                    <span className="font-sans text-xs text-white/20 flex-shrink-0">{formatSize(file.size)}</span>
                   </div>
                   <button
                     onClick={() => removeFile(i)}
-                    className="font-mono text-[9px] text-[var(--color-muted)] hover:text-red-400/70 cursor-pointer ml-3"
+                    className="font-sans text-xs text-[var(--color-muted)] hover:text-red-400/70 cursor-pointer ml-3"
                   >
                     ✕
                   </button>
@@ -159,28 +159,28 @@ function UploadModal({
 
           {/* Project name */}
           <div>
-            <label className="block font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5">
+            <label className="block font-sans text-xs tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5">
               Project Name
             </label>
             <input
               type="text"
               value={projectName}
               onChange={(e) => setProjectName(e.target.value)}
-              className="w-full bg-white/[0.02] border border-[var(--color-border)] px-4 py-3 text-white/85 font-mono text-sm tracking-wide focus:outline-none focus:border-white/[0.12] transition-all placeholder:text-white/15"
+              className="w-full bg-white/[0.02] border border-[var(--color-border)] px-4 py-3 text-white/85 font-sans text-sm tracking-wide focus:outline-none focus:border-white/[0.12] transition-all placeholder:text-white/15"
               placeholder="e.g. Brycen Residence, Spring Campaign"
             />
           </div>
 
           {/* Tags */}
           <div>
-            <label className="block font-mono text-[10px] tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5">
+            <label className="block font-sans text-xs tracking-[0.25em] text-[var(--color-muted)] uppercase mb-2.5">
               Tags (comma separated)
             </label>
             <input
               type="text"
               value={tagInput}
               onChange={(e) => setTagInput(e.target.value)}
-              className="w-full bg-white/[0.02] border border-[var(--color-border)] px-4 py-3 text-white/85 font-mono text-sm tracking-wide focus:outline-none focus:border-white/[0.12] transition-all placeholder:text-white/15"
+              className="w-full bg-white/[0.02] border border-[var(--color-border)] px-4 py-3 text-white/85 font-sans text-sm tracking-wide focus:outline-none focus:border-white/[0.12] transition-all placeholder:text-white/15"
               placeholder="e.g. exterior, progress-shot, drone"
             />
           </div>
@@ -197,7 +197,7 @@ function UploadModal({
                   transition={{ duration: 0.3 }}
                 />
               </div>
-              <p className="font-mono text-[9px] tracking-wide text-[var(--color-muted)] mt-2">
+              <p className="font-sans text-xs tracking-wide text-[var(--color-muted)] mt-2">
                 Uploading... {progress}%
               </p>
             </div>
@@ -208,14 +208,14 @@ function UploadModal({
         <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-[var(--color-border)]">
           <button
             onClick={onClose}
-            className="font-mono text-[10px] tracking-[0.15em] uppercase text-[var(--color-muted)] px-5 py-2.5 border border-[var(--color-border)] hover:bg-white/[0.02] transition-colors cursor-pointer"
+            className="font-sans text-xs tracking-[0.15em] uppercase text-[var(--color-muted)] px-5 py-2.5 border border-[var(--color-border)] hover:bg-white/[0.02] transition-colors cursor-pointer"
           >
             Cancel
           </button>
           <button
             onClick={handleUpload}
             disabled={files.length === 0 || uploading}
-            className="font-mono text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 border transition-all cursor-pointer disabled:opacity-30"
+            className="font-sans text-xs tracking-[0.15em] uppercase px-5 py-2.5 border transition-all cursor-pointer disabled:opacity-30"
             style={{
               color: '#0a0a0a',
               backgroundColor: accent,
@@ -277,13 +277,13 @@ function MediaThumb({
           backgroundColor: selected ? accent : 'rgba(0,0,0,0.5)',
         }}
       >
-        {selected && <span className="text-[10px] text-black font-bold">✓</span>}
+        {selected && <span className="text-xs text-black font-bold">✓</span>}
       </button>
 
       {/* Type badge */}
       <div className="absolute top-2 right-2 z-10">
         <span
-          className="font-mono text-[8px] uppercase px-1.5 py-0.5 bg-black/60 backdrop-blur-sm"
+          className="font-sans text-xs uppercase px-1.5 py-0.5 bg-black/60 backdrop-blur-sm"
           style={{ color: accent }}
         >
           {item.fileType === 'video' ? 'VID' : 'IMG'}
@@ -300,16 +300,16 @@ function MediaThumb({
         )}
         {!url && (
           <div className="w-full h-full flex items-center justify-center">
-            <span className="font-mono text-[9px] text-white/15">Loading...</span>
+            <span className="font-sans text-xs text-white/15">Loading...</span>
           </div>
         )}
       </div>
 
       {/* Info bar */}
       <div className="px-3 py-2.5 border-t border-[var(--color-border)]">
-        <p className="font-mono text-[10px] text-white/50 truncate">{item.fileName}</p>
+        <p className="font-sans text-xs text-white/50 truncate">{item.fileName}</p>
         {item.projectName && (
-          <p className="font-serif text-[10px] italic text-white/25 mt-0.5 truncate">{item.projectName}</p>
+          <p className="font-body text-xs text-white/25 mt-0.5 truncate">{item.projectName}</p>
         )}
       </div>
     </motion.div>
@@ -361,21 +361,21 @@ function PreviewModal({
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--color-border)]">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-[9px] uppercase px-2 py-0.5 border" style={{ color: accent, borderColor: `${accent}40` }}>
+            <span className="font-sans text-xs uppercase px-2 py-0.5 border" style={{ color: accent, borderColor: `${accent}40` }}>
               {item.fileType}
             </span>
-            <span className="font-mono text-xs text-white/60">{item.fileName}</span>
+            <span className="font-sans text-xs text-white/60">{item.fileName}</span>
           </div>
           <div className="flex items-center gap-3">
             <button
               onClick={onDelete}
-              className="font-mono text-[9px] tracking-[0.1em] uppercase text-[var(--color-muted)] hover:text-red-400/70 transition-colors cursor-pointer"
+              className="font-sans text-xs tracking-[0.1em] uppercase text-[var(--color-muted)] hover:text-red-400/70 transition-colors cursor-pointer"
             >
               Delete
             </button>
             <button
               onClick={onClose}
-              className="font-mono text-[10px] tracking-[0.1em] text-[var(--color-muted)] hover:text-white/60 transition-colors cursor-pointer uppercase"
+              className="font-sans text-xs tracking-[0.1em] text-[var(--color-muted)] hover:text-white/60 transition-colors cursor-pointer uppercase"
             >
               Close
             </button>
@@ -396,23 +396,23 @@ function PreviewModal({
         <div className="px-6 py-3 border-t border-[var(--color-border)] flex items-center gap-6">
           {item.projectName && (
             <div>
-              <span className="font-mono text-[9px] tracking-[0.15em] text-white/20 uppercase">Project</span>
-              <p className="font-mono text-xs text-white/50">{item.projectName}</p>
+              <span className="font-sans text-xs tracking-[0.15em] text-white/20 uppercase">Project</span>
+              <p className="font-sans text-xs text-white/50">{item.projectName}</p>
             </div>
           )}
           {item.tags.length > 0 && (
             <div>
-              <span className="font-mono text-[9px] tracking-[0.15em] text-white/20 uppercase">Tags</span>
+              <span className="font-sans text-xs tracking-[0.15em] text-white/20 uppercase">Tags</span>
               <div className="flex gap-2 mt-0.5">
                 {item.tags.map((t) => (
-                  <span key={t} className="font-mono text-[9px] text-[var(--color-muted)]">#{t}</span>
+                  <span key={t} className="font-sans text-xs text-[var(--color-muted)]">#{t}</span>
                 ))}
               </div>
             </div>
           )}
           <div>
-            <span className="font-mono text-[9px] tracking-[0.15em] text-white/20 uppercase">Added</span>
-            <p className="font-mono text-xs text-white/50">
+            <span className="font-sans text-xs tracking-[0.15em] text-white/20 uppercase">Added</span>
+            <p className="font-sans text-xs text-white/50">
               {new Date(item.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
             </p>
           </div>
@@ -493,7 +493,7 @@ export default function MediaVaultPage({
       <div className="flex items-center justify-center py-20">
         <div className="flex items-center gap-3">
           <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: accent }} />
-          <span className="text-[var(--color-muted)] font-mono text-xs tracking-wide">Loading media...</span>
+          <span className="text-[var(--color-muted)] font-sans text-xs tracking-wide">Loading media...</span>
         </div>
       </div>
     );
@@ -510,7 +510,7 @@ export default function MediaVaultPage({
             animate={{ opacity: 1, x: 0 }}
           >
             <div className="h-px w-8" style={{ backgroundColor: accent, opacity: 0.5 }} />
-            <span className="font-mono text-[10px] tracking-[0.3em] text-[var(--color-muted)] uppercase">
+            <span className="font-sans text-xs tracking-[0.3em] text-[var(--color-muted)] uppercase">
               Vault
             </span>
           </motion.div>
@@ -524,7 +524,7 @@ export default function MediaVaultPage({
             Media
           </motion.h1>
           <motion.p
-            className="text-[var(--color-muted)] font-serif text-sm italic mt-1"
+            className="text-[var(--color-muted)] font-body text-sm mt-1"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
@@ -541,14 +541,14 @@ export default function MediaVaultPage({
           {selected.size > 0 && (
             <button
               onClick={handleDeleteSelected}
-              className="font-mono text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 border border-red-500/40 text-red-400/80 hover:bg-red-500/10 transition-all cursor-pointer"
+              className="font-sans text-xs tracking-[0.15em] uppercase px-5 py-2.5 border border-red-500/40 text-red-400/80 hover:bg-red-500/10 transition-all cursor-pointer"
             >
               Delete {selected.size}
             </button>
           )}
           <button
             onClick={() => setShowUpload(true)}
-            className="font-mono text-[10px] tracking-[0.15em] uppercase px-5 py-2.5 border transition-all cursor-pointer"
+            className="font-sans text-xs tracking-[0.15em] uppercase px-5 py-2.5 border transition-all cursor-pointer"
             style={{ color: '#0a0a0a', backgroundColor: accent, borderColor: accent }}
           >
             + Upload
@@ -571,7 +571,7 @@ export default function MediaVaultPage({
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-white/[0.02] border border-[var(--color-border)] pl-10 pr-4 py-2.5 text-white/85 font-mono text-xs tracking-wide focus:outline-none focus:border-white/[0.12] transition-all placeholder:text-white/15"
+            className="w-full bg-white/[0.02] border border-[var(--color-border)] pl-10 pr-4 py-2.5 text-white/85 font-sans text-xs tracking-wide focus:outline-none focus:border-white/[0.12] transition-all placeholder:text-white/15"
             placeholder="Search files, projects, or tags..."
           />
         </div>
@@ -584,7 +584,7 @@ export default function MediaVaultPage({
                 <button
                   key={project}
                   onClick={() => setFilterProject(project)}
-                  className="font-mono text-[9px] tracking-[0.1em] uppercase px-3 py-1.5 border transition-all duration-200 cursor-pointer"
+                  className="font-sans text-xs tracking-[0.1em] uppercase px-3 py-1.5 border transition-all duration-200 cursor-pointer"
                   style={{
                     color: active ? '#0a0a0a' : 'var(--color-muted)',
                     backgroundColor: active ? accent : 'transparent',
@@ -609,7 +609,7 @@ export default function MediaVaultPage({
           <svg className="w-10 h-10 mx-auto mb-4 text-white/10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
           </svg>
-          <p className="font-serif text-sm italic text-[var(--color-muted)]">
+          <p className="font-body text-sm text-[var(--color-muted)]">
             {search || filterProject !== 'All'
               ? 'No media matches your filters.'
               : 'No media uploaded yet. Click Upload to add photos and videos.'}
